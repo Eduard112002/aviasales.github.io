@@ -1,0 +1,27 @@
+.tabs{
+    width: 500px;
+    height: 50px;
+}
+
+.tabs_but{
+    height: 100%;
+    width: 33%;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 20px;
+    font-size: 15px;
+    color: #4A4A4A;
+    border: 1px solid #DFE5EC;
+    cursor: url("../img/Cursor.svg"), pointer;
+}
+.tabs_but:first-child {
+    border-radius: 7px 0 0 7px;
+}
+
+.tabs_but:last-child {
+    border-radius: 0 7px 7px 0;
+}
+
+.tabs_but:active, .tabs_but:focus{
+    background-color: #2196F3;
+    color: white;
+}

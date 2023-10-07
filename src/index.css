@@ -1,0 +1,14 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.info_tickets{
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 30px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: space-around;
+}

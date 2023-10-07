@@ -1,0 +1,45 @@
+.tickets{
+    height: 185px;
+    padding-top: 30px;
+    box-shadow: 0 2px 1px rgba(177, 177, 177, 0.31);
+    padding-left: 15px;
+    padding-right: 17px;
+}
+
+.tickets_header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tickets_price{
+    padding-top: 20px;
+    font-size: 24px;
+    font-family: 'Open Sans', sans-serif;
+    color: #2196F3;
+}
+
+.destination{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.content_info{
+    display: flex;
+    flex-direction: column;
+}
+
+.info{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.info_head{
+    font-size: 12px;
+    color: #A0B0B9;
+    line-height: 18px;
+}
+
+.origin{
+    display: flex;
+    justify-content: space-between;
+}
