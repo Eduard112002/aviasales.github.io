@@ -1,6 +1,13 @@
 body{
     padding: 0;
     margin: 0;
+    background-color: #fbfeff;
+}
+
+@media (max-width: 940px) {
+    #root{
+        padding-right: 35px;
+    }
 }
 
 .info_tickets{
@@ -10,5 +17,63 @@ body{
     padding-top: 30px;
     margin-bottom: 60px;
     display: flex;
-    justify-content: space-around;
+    border: 1px solid #fbfeff;
+    position: relative;
+}
+
+@media (max-width: 1560px) {
+    .info_tickets{
+        width: 55%;
+    }
+}
+
+@media (max-width: 1460px) {
+    .info_tickets{
+        width: 60%;
+    }
+}
+
+@media (max-width: 1360px) {
+    .info_tickets{
+        width: 65%;
+    }
+}
+
+@media (max-width: 1260px) {
+    .info_tickets{
+        width: 70%;
+    }
+}
+
+@media (max-width: 1220px) {
+    .info_tickets{
+        width: 100%;
+        margin: 0;
+        padding-left: 10%;
+        padding-right: 45px;
+    }
+}
+@media (max-width: 1220px) {
+    .info_tickets{
+        width: 100%;
+        margin: 0;
+        padding-left: 10%;
+        padding-right: 45px;
+    }
+}
+@media (max-width: 1050px) {
+    .info_tickets{
+        padding-left: 25px;
+    }
+}
+
+@media (max-width: 720px) {
+    .info_tickets{
+        padding-right: 0;
+        padding-left: 3%;
+    }
+}
+
+.content{
+    width: 600px;
 }

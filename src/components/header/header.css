@@ -14,3 +14,11 @@
     width: 70px;
     height: 70px;
 }
+
+@media (max-width: 485px) {
+    .logo{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+}

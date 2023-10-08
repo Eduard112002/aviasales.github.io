@@ -6,7 +6,7 @@ import Tickets from '../tickets';
 const TicketsList = ({ ticketsList, quantity }) => {
     return ticketsList.map((el, index) => {
         if(index < quantity) {
-            console.log(quantity);
+            console.log(el);
             return <Tickets tickets={el} key={el.price}/>
         }
     })
