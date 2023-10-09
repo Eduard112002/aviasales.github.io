@@ -12,10 +12,9 @@ body{
 
 .info_tickets{
     width: 50%;
-    margin-right: auto;
-    margin-left: auto;
     padding-top: 30px;
-    margin-bottom: 60px;
+    padding-right: 15px;
+    margin: 30px auto 60px auto;
     display: flex;
     border: 1px solid #fbfeff;
     position: relative;
@@ -45,20 +44,17 @@ body{
     }
 }
 
-@media (max-width: 1220px) {
+@media (max-width: 1220px) and (min-width: 930px) {
     .info_tickets{
-        width: 100%;
+        width: 80%;
         margin: 0;
         padding-left: 10%;
         padding-right: 45px;
     }
 }
-@media (max-width: 1220px) {
+@media (max-width: 930px) {
     .info_tickets{
         width: 100%;
-        margin: 0;
-        padding-left: 10%;
-        padding-right: 45px;
     }
 }
 @media (max-width: 1050px) {

@@ -6,24 +6,21 @@ export default class Services extends Component {
             method: 'GET',
         });
         if (!res.ok) {
-            console.error('Не возможно создать гостевую сессию');
+           throw new Error('Сервис временно не доступен')
         }
         return res.json();
     }
 
     async getSearchId() {
-        if (!sessionStorage.getItem('id')) {
-            const res = await this.getSearchIdNew();
-            sessionStorage.setItem('id', res.searchId);
-            return res.searchId;
-        }
+        const res = await this.getSearchIdNew();
+        return res.searchId;
     }
     async getTickets(id) {
         const res = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${id}`, {
             method: 'GET',
         });
         if (!res.ok) {
-            console.error('Ошибка сторонего сервера');
+           throw new Error('Сервер временно не доступен. Попррбуйте позже');
         }
         return res.json();
     }

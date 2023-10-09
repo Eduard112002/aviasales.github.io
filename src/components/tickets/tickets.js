@@ -1,6 +1,6 @@
 import React from 'react';
 import './tickets.css';
-const Tickets = ({tickets}) => {
+const Tickets = ({tickets, transfers}) => {
     let price = String(tickets.price).split('');
     const destination = tickets.segments[0];
     const origin = tickets.segments[1];
@@ -31,6 +31,7 @@ const Tickets = ({tickets}) => {
     const timeDifferOrigin = timeDiffer(dataOrigin, timeWayOrigin);
     const transfersOrigin = origin.stops.length;
     const stopsCodeOrigin = stopsCodeCity(origin.stops);
+    //const height = transfersOrigin === 3 && transfersDestination === 3 ?
     return (
        <div className="tickets">
           <div className="tickets_header">
