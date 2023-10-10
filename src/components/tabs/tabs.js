@@ -1,7 +1,10 @@
 import React from 'react';
 import './tabs.css';
+import { useDispatch } from 'react-redux';
+import { transfersNone } from '../../actions';
 
-const Tabs = ({ transfersNone }) => {
+const Tabs = () => {
+    const dispatch = useDispatch();
   return (
       <div className="tabs_head">
           <div className="tabs">
@@ -10,7 +13,7 @@ const Tabs = ({ transfersNone }) => {
               <button className="tabs_but">Оптимальный</button>
           </div>
           <div className="transfers_burger">
-              <button onClick={transfersNone}>Количество пересадок</button>
+              <button onClick={() => dispatch(transfersNone())}>Количество пересадок</button>
           </div>
       </div>
   )

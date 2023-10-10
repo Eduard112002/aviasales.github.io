@@ -1,6 +1,6 @@
 import React from 'react';
 import './tickets.css';
-const Tickets = ({tickets, transfers}) => {
+const Tickets = ({tickets }) => {
     let price = String(tickets.price).split('');
     const destination = tickets.segments[0];
     const origin = tickets.segments[1];
