@@ -44,7 +44,7 @@
     }
 }
 
-.tabs_but:active, .tabs_but:focus{
+.tabs_but__focus{
     background-color: #2196F3;
     color: white;
 }

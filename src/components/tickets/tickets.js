@@ -31,7 +31,6 @@ const Tickets = ({tickets }) => {
     const timeDifferOrigin = timeDiffer(dataOrigin, timeWayOrigin);
     const transfersOrigin = origin.stops.length;
     const stopsCodeOrigin = stopsCodeCity(origin.stops);
-    //const height = transfersOrigin === 3 && transfersDestination === 3 ?
     return (
        <div className="tickets">
           <div className="tickets_header">

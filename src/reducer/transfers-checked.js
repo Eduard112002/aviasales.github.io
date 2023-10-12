@@ -1,4 +1,4 @@
-const defaultState = {
+const defaultStateChecked = {
     fullChecked: false,
     noChecked: false,
     oneChecked: false,
@@ -6,7 +6,7 @@ const defaultState = {
     threeChecked: false,
 }
 
-const transfersCheckedReducer = (state = defaultState, action) => {
+const transfersCheckedReducer = (state = defaultStateChecked, action) => {
     switch(action.type) {
         case 'FULL_TRANSFERS':
             if (!action.checked) {

@@ -11,3 +11,13 @@ export  const threeTransfers = (payload) => ({type: 'THREE_TRANSFER', checked: p
 export const transfersNoneEffect = () => ({type: 'NO_NONE_EFFECT'});
 
 export const transfersNone = () => ({type: 'NONE_EFFECT'});
+
+export const addTickets = (payload) => ({type: 'ADD_TICKETS', tickets: payload});
+
+export const addError = () => ({type: 'ADD_ERROR'});
+
+export const priceFilter = (payload) => ({type: 'FILTER_PRICE', ticketsList: payload});
+
+export const speedFilter = (payload) => ({type: 'FILTER_SPEED', ticketsList: payload});
+
+export const optimalFilter = (payload) => ({type: 'FILTER_OPTIMAL', ticketsList: payload});
