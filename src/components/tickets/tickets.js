@@ -31,8 +31,9 @@ const Tickets = ({tickets }) => {
     const timeDifferOrigin = timeDiffer(dataOrigin, timeWayOrigin);
     const transfersOrigin = origin.stops.length;
     const stopsCodeOrigin = stopsCodeCity(origin.stops);
+    const heightTicet = transfersDestination > 2 && transfersOrigin > 2 ? '230px' : '205px';
     return (
-       <div className="tickets">
+       <div className="tickets" style={{height: heightTicet}}>
           <div className="tickets_header">
               <span className="tickets_price">{price} Р </span>
               <span className="tickets_logo"><img src={`http://pics.avs.io/130/70/${tickets.carrier}.png`} alt='logo compania'/></span>

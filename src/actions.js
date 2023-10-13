@@ -8,9 +8,9 @@ export  const twoTransfers = (payload) => ({type: 'TWO_TRANSFER', checked: paylo
 
 export  const threeTransfers = (payload) => ({type: 'THREE_TRANSFER', checked: payload});
 
-export const transfersNoneEffect = () => ({type: 'NO_NONE_EFFECT'});
+export const addArrFilter = (arr) => ({type: 'APP_ARR_FILTER', ticketsList: arr});
 
-export const transfersNone = () => ({type: 'NONE_EFFECT'});
+export const transfersNoneEffect = () => ({type: 'NO_NONE_EFFECT'});
 
 export const addTickets = (payload) => ({type: 'ADD_TICKETS', tickets: payload});
 
@@ -21,3 +21,5 @@ export const priceFilter = (payload) => ({type: 'FILTER_PRICE', ticketsList: pay
 export const speedFilter = (payload) => ({type: 'FILTER_SPEED', ticketsList: payload});
 
 export const optimalFilter = (payload) => ({type: 'FILTER_OPTIMAL', ticketsList: payload});
+
+export const addQuantity = () => ({type: 'ADD_QUANTITY'});

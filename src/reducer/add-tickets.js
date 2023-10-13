@@ -2,6 +2,7 @@ const defaultStateTickets = {
     ticketsList: [],
     loading: true,
     error: false,
+    arrFilter: [],
 }
 
 const addTicketsReducer = (state = defaultStateTickets, action) => {
@@ -10,6 +11,11 @@ const addTicketsReducer = (state = defaultStateTickets, action) => {
             return {...state, ticketsList: [...state.ticketsList, ...action.tickets], loading: false};
         case "ADD_ERROR":
             return {...state, loading: false, error: true};
+        case 'APP_ARR_FILTER':
+            return {
+                ...state,
+                arrFilter: [...action.ticketsList],
+            }
         default:
             return state;
     }

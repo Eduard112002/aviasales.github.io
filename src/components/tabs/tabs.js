@@ -1,14 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './tabs.css';
 import { connect } from 'react-redux';
-import { transfersNone } from '../../actions';
 import * as actions from "../../actions";
 import store from "../../store";
 import {bindActionCreators} from "redux";
+import TransferMobile from '../transfer-mobile';
 
-const Tabs = ({ error, ticketsList, price, speed, optimal }) => {
+const Tabs = ({ error, ticketsList, price, speed, optimal, arrFilter }) => {
   const { dispatch } = store;
-  const { priceFilter, speedFilter, optimalFilter } = bindActionCreators(actions, dispatch);
+  const { priceFilter, speedFilter, optimalFilter,addArrFilter } = bindActionCreators(actions, dispatch);
+  useEffect(() => {
+      if (arrFilter.length) {
+          addArrFilter(arrFilter);
+      }
+  }, [arrFilter]);
+
   if (!error) {
       return (
           <div className="tabs_head">
@@ -18,7 +24,7 @@ const Tabs = ({ error, ticketsList, price, speed, optimal }) => {
                   <button className={optimal ? "tabs_but tabs_but__focus" : "tabs_but"} onClick={() => optimalFilter(ticketsList)}>Оптимальный</button>
               </div>
               <div className="transfers_burger">
-                  <button onClick={() => dispatch(transfersNone())}>Количество пересадок</button>
+                  <TransferMobile />
               </div>
           </div>
       )
@@ -30,10 +36,11 @@ const mapStateToProps = (state) => {
     const filter = state.tabsFilterReducer;
     return {
         error: tiscets.error,
-        ticketsList: tiscets.ticketsList,
+        ticketsList: tiscets.arrFilter,
         price: filter.price,
         speed: filter.speed,
         optimal: filter.optimal,
+        arrFilter: filter.arrFilter,
     };
 };
 

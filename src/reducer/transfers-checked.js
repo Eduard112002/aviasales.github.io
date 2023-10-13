@@ -9,16 +9,7 @@ const defaultStateChecked = {
 const transfersCheckedReducer = (state = defaultStateChecked, action) => {
     switch(action.type) {
         case 'FULL_TRANSFERS':
-            if (!action.checked) {
-                return {
-                    ...state,
-                    fullChecked: false,
-                    noChecked: false,
-                    oneChecked: false,
-                    twoChecked: false,
-                    threeChecked: false,
-                }
-            } else {
+            if (action.checked) {
                 return {
                     ...state,
                     fullChecked: true,
@@ -26,6 +17,15 @@ const transfersCheckedReducer = (state = defaultStateChecked, action) => {
                     oneChecked: true,
                     twoChecked: true,
                     threeChecked: true,
+                }
+            } else {
+                return {
+                    ...state,
+                    fullChecked: false,
+                    noChecked: false,
+                    oneChecked: false,
+                    twoChecked: false,
+                    threeChecked: false,
                 }
             }
         case 'NO_TRANSFER':

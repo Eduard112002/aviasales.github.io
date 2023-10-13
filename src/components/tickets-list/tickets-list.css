@@ -1,0 +1,8 @@
+:where(.css-dev-only-do-not-override-amq5gd).ant-modal {
+    width: 270px !important;
+}
+@media (min-width: 720px) {
+    :where(.css-dev-only-do-not-override-amq5gd)[class^="ant-modal"], :where(.css-dev-only-do-not-override-amq5gd)[class*=" ant-modal"] {
+       display: none;
+    }
+}

@@ -32,7 +32,7 @@ const TicketsList = ({ ticketsList, quantity, loading, error }) => {
     if (ticketsList.length !== 0) {
         return ticketsList.map((el, index) => {
             if(index < quantity) {
-                return <Tickets tickets={el} key={el.price} />
+                return <Tickets tickets={el} key={Math.floor(Math.random() * 100000)} />
             }
         })
     } else {
@@ -49,11 +49,12 @@ const TicketsList = ({ ticketsList, quantity, loading, error }) => {
 
 const mapStateToProps = (state) => {
     const tickets = state.addTicketsReducer;
-    const filter = state.tabsFilterReducer
+    const tabs = state.tabsFilterReducer;
     return {
-        ticketsList: filter.arrFilter,
+        ticketsList: tickets.arrFilter,
         loading: tickets.loading,
         error: tickets.error,
+        quantity: tabs.quantity,
     };
 };
 export default connect(mapStateToProps)(TicketsList);

@@ -1,5 +1,4 @@
 import {configureStore, combineReducers, applyMiddleware} from '@reduxjs/toolkit';
-import {composeWithDevTools} from 'remotedev-redux-devtools-extension/npm-package';
 import transfersCheckedReducer from '../reducer/transfers-checked';
 import transfersEffectReducer from '../reducer/transfersEffect';
 import addTicketsReducer from '../reducer/add-tickets';
@@ -15,5 +14,5 @@ const reducer = combineReducers(
     }
 )
 
-const store = configureStore({reducer}, composeWithDevTools(applyMiddleware(thunk)));
+const store = configureStore({reducer}, applyMiddleware(thunk));
 export default store;

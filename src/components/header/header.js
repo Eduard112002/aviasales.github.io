@@ -8,7 +8,7 @@ const Header = ({ error }) => {
           <span className='logo_img'></span>
       </div>
   }
-}
+};
 
 const mapStateToProps = (state) => {
     const tiscets = state.addTicketsReducer;

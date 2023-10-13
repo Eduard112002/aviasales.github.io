@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from "react-redux";
 
@@ -12,11 +12,7 @@ import FooterBut from './components/footer-but';
 import store from "./store";
 
 function App() {
-    const server = new Server(1);
-    const [quantity, setQuantity] = useState(5);
-    const addQuantity = () => {
-        setQuantity((s) => s + 5);
-    }
+    const server = new Server();
     useEffect(() => {
         server.getSearchId().then((res) => server.getID(res));
     }, []);
@@ -28,8 +24,8 @@ function App() {
                 <Transfers />
                 <div className="content">
                     <Tabs />
-                    <TicketsList quantity={quantity} />
-                    <FooterBut addQuantity={addQuantity} />
+                    <TicketsList />
+                    <FooterBut />
                 </div>
             </main>
         </Provider>

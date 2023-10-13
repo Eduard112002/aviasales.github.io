@@ -31,7 +31,7 @@ export default class Services extends Component {
 
     addItem = (arr, idTickets) => {
         let id = null;
-        /*if (!arr.stop){
+        if (!arr.stop){
             id = setInterval(() => {
                 this.getTickets(idTickets)
                     .then((res) => {
@@ -39,11 +39,14 @@ export default class Services extends Component {
                             this.addItem(res);
                             clearInterval(id);
                         }
-                        this.dispatch(addTicketa(res.tickets));
+                        if (res === 500) {
+                          console.clear();
+                        } else {
+                          this.dispatch(addTickets(res.tickets));
+                        }
                     })
-                    .catch((error) => console.log(error));
-            }, 2000);
-        }*/
+            }, 3000);
+        }
         if (arr !== 500) {
           this.dispatch(addTickets(arr.tickets));
         } else {

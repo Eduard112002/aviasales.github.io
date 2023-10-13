@@ -25,6 +25,11 @@
     cursor: url("../img/Cursor.svg"), pointer;
     background-color: #FFFFFF;
 }
+.tabs_but:hover{
+    border: 2px solid #2196F3;
+    box-shadow: 0 0 3px 3px rgba(114, 190, 254, 0.76);
+}
+
 
 .tabs_but:first-child {
     border-radius: 7px 0 0 7px;
@@ -62,7 +67,7 @@
 
 .transfers_burger button{
     font-family: 'Open Sans', sans-serif;
-    height: 25px;
+    height: 30px;
     color: #4A4A4A;
     border: none;
     box-shadow: 0 0 2px 1px rgba(221, 221, 221, 1);
@@ -73,3 +78,4 @@
     line-height: 12px;
     z-index: 10;
 }
+
