@@ -30,32 +30,25 @@ export default class Services extends Component {
 
 
     addItem = (arr, idTickets) => {
-        let id = null;
-        if (!arr.stop){
-            id = setInterval(() => {
-                this.getTickets(idTickets)
-                    .then((res) => {
-                        if (res.stop){
-                            this.addItem(res);
-                            clearInterval(id);
-                        }
-                        if (res === 500) {
-                          console.clear();
-                        } else {
-                          this.dispatch(addTickets(res.tickets));
-                        }
-                    })
-            }, 3000);
+        if (!arr.stop) {
+            this.getTickets(idTickets)
+                .then((res) => this.addItem(res, idTickets));
         }
         if (arr !== 500) {
-          this.dispatch(addTickets(arr.tickets));
+            this.dispatch(addTickets(arr.tickets))
         } else {
-           clearInterval(id);
-           this.dispatch(addError());
+            console.clear()
         }
     }
+
     getID = (idTickets) => {
         this.getTickets(idTickets)
-            .then((res) => this.addItem(res, idTickets));
+            .then((res) => {
+                if (res !== 500) {
+                    this.addItem(res, idTickets)
+                } else {
+                    this.dispatch(addError())
+                }
+            });
     };
 }

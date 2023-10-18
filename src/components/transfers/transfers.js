@@ -13,6 +13,19 @@ const Transfers = ({ fullChecked, noChecked, oneChecked, twoChecked, threeChecke
     const { fullTransfers, noTransfers, oneTransfers, twoTransfers, threeTransfers,
         transfersNoneEffect, addArrFilter, priceFilter, speedFilter, optimalFilter} =
         bindActionCreators(actions, dispatch);
+    const checkedFunction = [fullTransfers, noTransfers, oneTransfers, twoTransfers, threeTransfers];
+    const checkedName = [fullChecked, noChecked, oneChecked, twoChecked, threeChecked]
+    const checkboxEl = ['Все', 'Без пересадок', '1 пересадка', '2 пересадка', '3 пересадка'];
+    const transfersBox = checkboxEl.map((el, index) => {
+        const fun = checkedFunction[index];
+        return (
+            <label className="transfers_input" htmlFor={el} key={el}>
+                <input type="checkbox" id={el} onChange={(event) => fun(event.target.checked)} checked={checkedName[index]}/>
+                <span>{el}</span>
+            </label>
+        )
+    })
+
     useEffect(() => {
         let resultArr = [];
         const obj = {
@@ -83,26 +96,7 @@ const Transfers = ({ fullChecked, noChecked, oneChecked, twoChecked, threeChecke
               <div className={className}>
                   <span className="heading">Количество пересадок</span>
                   <form className="transfers" >
-                      <label className="transfers_input" htmlFor="full">
-                          <input type="checkbox" id="full" onChange={(event) => fullTransfers(event.target.checked)} checked={fullChecked}/>
-                          <span>Все</span>
-                      </label>
-                      <label className="transfers_input" htmlFor="no">
-                          <input type="checkbox" id="no" onChange={(event) => noTransfers(event.target.checked)} checked={noChecked}/>
-                          <span>Без пересадок</span>
-                      </label>
-                      <label className="transfers_input" htmlFor="1">
-                          <input type="checkbox" id="1" onChange={(event) => oneTransfers(event.target.checked)} checked={oneChecked}/>
-                          <span>1 пересадка</span>
-                      </label>
-                      <label className="transfers_input" htmlFor="2">
-                          <input type="checkbox" id="2" onChange={(event) => twoTransfers(event.target.checked)} checked={twoChecked}/>
-                          <span>2 пересадка</span>
-                      </label>
-                      <label className="transfers_input" htmlFor="3">
-                          <input type="checkbox" id="3" onChange={(event) => threeTransfers(event.target.checked)} checked={threeChecked}/>
-                          <span>3 пересадка</span>
-                      </label>
+                      {transfersBox}
                   </form>
               </div>
           </div>

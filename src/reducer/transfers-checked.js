@@ -41,6 +41,7 @@ const transfersCheckedReducer = (state = defaultStateChecked, action) => {
                 ...newStateNo,
             }
         case 'ONE_TRANSFER':
+
             let newStateOne = {oneChecked: action.checked};
             if (!action.checked) {
                 newStateOne = {

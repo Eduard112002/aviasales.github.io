@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import {  Button, Modal  } from 'antd';
 import './transfer-mobile.css';
-import {connect} from "react-redux";
+import {connect, useDispatch} from "react-redux";
+import {bindActionCreators} from "redux";
+import * as actions from "../../actions";
 
 const TransferMobile = ({ fullChecked, noChecked, oneChecked, twoChecked, threeChecked }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const dispatch = useDispatch();
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -14,6 +17,20 @@ const TransferMobile = ({ fullChecked, noChecked, oneChecked, twoChecked, threeC
     const handleCancel = () => {
         setIsModalOpen(false);
     };
+    const { fullTransfers, noTransfers, oneTransfers, twoTransfers, threeTransfers } =
+        bindActionCreators(actions, dispatch);
+    let checkedFunction = [fullTransfers, noTransfers, oneTransfers, twoTransfers, threeTransfers];
+    let checkedName = [fullChecked, noChecked, oneChecked, twoChecked, threeChecked];
+    const checkboxEl = ['Все', 'Без пересадок', '1 пересадка', '2 пересадка', '3 пересадка'];
+    const transfersBox = checkboxEl.map((el, index) => {
+        const fun = checkedFunction[index];
+        return (
+            <label className="transfers_input" htmlFor={el} key={el}>
+                <input type="checkbox" id={el} onChange={(event) => fun(event.target.checked)} checked={checkedName[index]}/>
+                <span>{el}</span>
+            </label>
+        )
+    })
     return (
         <>
             <Button type="primary" onClick={showModal}>
@@ -22,26 +39,7 @@ const TransferMobile = ({ fullChecked, noChecked, oneChecked, twoChecked, threeC
             <Modal title="Количество пересадок" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 <div>
                     <form className="transfers" >
-                        <label className="transfers_input" htmlFor="full" >
-                            <input type="checkbox" id="full" onChange={() => console.log('opp')} checked={fullChecked}/>
-                            <span>Все</span>
-                        </label>
-                        <label className="transfers_input" htmlFor="no" >
-                            <input type="checkbox" id="no" onChange={() => console.log('opp')}  checked={noChecked}/>
-                            <span>Без пересадок</span>
-                        </label>
-                        <label className="transfers_input" htmlFor="1" >
-                            <input type="checkbox" id="1" onChange={() => console.log('opp')}  checked={oneChecked}/>
-                            <span>1 пересадка</span>
-                        </label>
-                        <label className="transfers_input" htmlFor="2" >
-                            <input type="checkbox" id="2" onChange={() => console.log('opp')}  checked={twoChecked}/>
-                            <span>2 пересадки</span>
-                        </label>
-                        <label className="transfers_input" htmlFor="3" >
-                            <input type="checkbox" id="3" onChange={() => console.log('opp')}  checked={threeChecked}/>
-                            <span>3 пересадки</span>
-                        </label>
+                        {transfersBox}
                     </form>
                 </div>
             </Modal>
