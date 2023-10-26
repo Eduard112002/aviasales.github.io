@@ -1,1 +1,1 @@
-https://aviasales-github-829yhk01p-barelis-mailru.vercel.app/
+https://blog-platform-3n7tu16za-barelis-mailru.vercel.app/
